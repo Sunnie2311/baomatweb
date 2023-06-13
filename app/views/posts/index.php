@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
     <?php flash('post_message'); ?>
 <div class="image-container">
-    <img src="../../../public/img/picture.png">
+    <img src="public/img/picture.png" alt="Girl"/>
 </div>
   <div class="row ">
       <div class="col-md-8">

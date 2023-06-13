@@ -7,31 +7,25 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="attr" href="<?php echo URLROOT; ?>">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="attr" href="<?php echo URLROOT; ?>/pages/about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="attr" href="<?php echo URLROOT; ?>/pages/contact">Contact</a>
-            </li>
+<!--            <li class="nav-item">-->
+<!--              <a class="attr" href="--><?php //echo URLROOT; ?><!--">Home</a>-->
+<!--            </li>-->
           </ul>
           
           <ul class="navbar-nav ml-auto">
           <?php if(isset($_SESSION['user_id'])) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="#">Welcome <?php echo $_SESSION['name'] ;?></a>
+              <a class="nav-link nav-button" href="#">Welcome <?php echo $_SESSION['name'] ;?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+              <a class="nav-link nav-button" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
             </li>
           <?php else : ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
+              <a class="nav-link nav-button" href="<?php echo URLROOT; ?>/users/register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
+              <a class="nav-link nav-button" href="<?php echo URLROOT; ?>/users/login">Login</a>
             </li>
           </ul>
         <?php endif ;?>
