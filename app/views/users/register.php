@@ -1,4 +1,17 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+    <div class="col-md-4">
+        <div class="sidebar">
+            <p class="sidebar-text">
+                Post Sharing
+            </p>
+            <p class="sidebar-data">
+                Post your blog here
+            </p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="../public/img/picture1.jpg" alt="Bike"/>
+    </div>
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card bg-light mt-5">
