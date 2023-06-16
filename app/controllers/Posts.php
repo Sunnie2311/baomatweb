@@ -7,7 +7,7 @@ class Posts extends Controller{
             redirect('users/login');
         }
         //new model instance
-        $this->commentModel = $this->model('Comment');
+//        $this->commentModel = $this->model('Comment');
         $this->postModel    = $this->model('Post');
         $this->userModel    = $this->model('User');
     }
@@ -95,12 +95,12 @@ class Posts extends Controller{
     public function show($id){
         $post    = $this->postModel->getPostById($id);
         $user    = $this->userModel->getUserById($post->user_id);
-        $comment = $this->commentModel->getCommentsByPost($id, $post->user_id);
+//        $comment = $this->commentModel->getCommentsByPost($id, $post->user_id);
 
         $data = [
             'post' => $post,
             'user' => $user,
-            'comment' => $comment,
+//            'comment' => $comment,
         ];
 
         $this->view('posts/show', $data);

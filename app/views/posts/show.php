@@ -13,7 +13,7 @@
             <p class="card-title bg-light p-2 mb-3">
              Created By <?php echo $data['user']->name ;?> on <?php echo  $data['post']->created_at ;?>
             </p>
-            <div class="card-body"><h3 class="card-text">Comments</h3></div>
+<!--            <div class="card-body"><h3 class="card-text">Comments</h3></div>-->
             <?php if($data['post']->user_id == $_SESSION['user_id']) : ?>
                 <div class="row">
                     <div class="col">
