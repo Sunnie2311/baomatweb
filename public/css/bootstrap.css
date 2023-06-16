@@ -10156,4 +10156,8 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: bold;
 }
 
+.custom-btn {
+  width: 100%
+}
+
 /*# sourceMappingURL=bootstrap.css.map */

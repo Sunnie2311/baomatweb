@@ -7,8 +7,9 @@ class Posts extends Controller{
             redirect('users/login');
         }
         //new model instance
-        $this->postModel = $this->model('Post'); //
-        $this->userModel = $this->model('User'); //
+        $this->commentModel = $this->model('Comment');
+        $this->postModel    = $this->model('Post');
+        $this->userModel    = $this->model('User');
     }
 
     public function index(){ //Trang mặc dịnh khi người dùng đăng nhập vào
@@ -49,7 +50,7 @@ class Posts extends Controller{
                     die('something went wrong');
                 }
                
-                //laod view with error
+                //load view with error
             }else{
                 $this->view('posts/add', $data);
             }
@@ -63,14 +64,43 @@ class Posts extends Controller{
         }
     }
 
-    //show single post 
+//    public function addComments($post_id, $user_id){
+//        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+//        $post = $this->postModel->getPostById($post_id);
+//        $user = $this->postModel->getUserById($user_id);
+//        if($_SERVER['REQUEST_METHOD'] == 'POST')
+//        {
+//            $data = [
+//                'user_id' => $user->id,
+//                'post_id' => $post->id,
+//                'content' => trim($_POST['content']),
+//            ];
+//            if (empty($data['content'])) {
+//                $data['content_err'] = 'Please enter a comment';
+//            }
+//
+//            if (empty($data['content_err'])) {
+//                if($this->commentModel->addComment($data)){
+//                    flash('post_message', 'Your post have been added');
+//                    redirect('posts/show');
+//                }else{
+//                    die('something went wrong');
+//                }
+//            }
+//            else{
+//                $this->view('posts/show', $data);
+//            }
+//        }
+//    }
     public function show($id){
-        $post = $this->postModel->getPostById($id);
-        $user = $this->userModel->getUserById($post->user_id);
+        $post    = $this->postModel->getPostById($id);
+        $user    = $this->userModel->getUserById($post->user_id);
+        $comment = $this->commentModel->getCommentsByPost($id, $post->user_id);
 
         $data = [
             'post' => $post,
-            'user' => $user
+            'user' => $user,
+            'comment' => $comment,
         ];
 
         $this->view('posts/show', $data);

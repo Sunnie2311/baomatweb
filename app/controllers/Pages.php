@@ -8,13 +8,5 @@
       if(isLoggedIn()){
         redirect('posts'); //Phân quyền cho người chưa đăng nhập và người đã đăng nhập
       }
-
-     
-    }
-
-    public function about(){
-    }
-
-    public function contact(){
     }
   }

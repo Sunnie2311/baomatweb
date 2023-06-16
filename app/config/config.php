@@ -12,4 +12,3 @@ const URLROOT = 'http://localhost/baomatweb';
   // Site Name
 const SITENAME = 'DuongB\'s Site';
   // App Version
-const APPVERSION = '8.0.28';

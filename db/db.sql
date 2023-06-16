@@ -1,32 +1,12 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 14, 2019 at 07:17 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `shareposts`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `posts`
---
+SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT;
+SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS;
+SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION;
+SET NAMES utf8mb4;
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
@@ -36,19 +16,22 @@ CREATE TABLE `posts` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `posts`
---
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `comments` VALUES
+(1,8,'test1',13,'2023-06-16 22:41:44'),
+(2,8,'test2',13,'2023-06-16 22:41:58');
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `body`, `created_at`) VALUES
-(5, 10, 'post three', 'this is good', '2019-08-13 15:46:43'),
-(6, 10, 'Post Three', 'this is good', '2019-08-13 15:51:23');
+(5, 10, 'post three', 'this is good', '2023-06-02 15:46:43'),
+(6, 10, 'Post Three', 'this is good', '2023-06-02 15:51:23');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
@@ -58,47 +41,24 @@ CREATE TABLE `user` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(10, 'Emmanuel Omonzebaguan', 'emmizy2015@gmail.com', '$2y$10$GHZKnWPt3ZQEUztMRkVogO2yaQG6cEYOiFVXDjyOLFqSi8s7NazmG', '2019-08-12 16:01:21'),
-(11, 'Mat Sele', 'matsele@gmail.com', '$2y$10$LVFIESEbb9o/sVV9sX8Xwe1Gpo2lMRGhErnXN6SKf0ytxEAhmw69O', '2019-08-14 04:36:55');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `posts`
---
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `user`
---
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+ALTER TABLE `comments`
+    ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for table `posts`
---
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT for table `user`
---
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `comments`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+COMMIT;
+SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT;
+SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS;
+SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION;
