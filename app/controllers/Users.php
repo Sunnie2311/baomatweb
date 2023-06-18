@@ -151,4 +151,8 @@ class Users extends Controller{
         session_destroy();
         redirect('users/login');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5c478878593497950341253fefe4a78259999247

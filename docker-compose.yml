@@ -1,0 +1,38 @@
+version: '3'
+services:
+    app:
+        build:
+            context: .
+        restart: unless-stopped
+        ports:
+            - 32770:80
+        environment:
+            PHP_MAX_EXECUTION_TIME: 0
+            PHP_POST_MAX_SIZE: '512M'
+            PHP_UPLOAD_MAX_FILESIZE: '512M'
+            PHP_MEMORY_LIMIT: '512M'
+            FPM_PM_START_SERVERS: 16
+            FPM_PM_MIN_SPARE_SERVERS: 8
+            FPM_PM_MAX_SPARE_SERVERS: 16
+            FPM_PM_MAX_CHILDREN: 16
+            DB_NAME: "app"
+            DB_USER: "root"
+            DB_PASS: "xnXWM!e06@!u0QLzel5S"
+            DB_HOST: db
+            DB_PORT: 3306
+            SITE_URL: http://20.239.170.180:32770
+            PHP_DISMOD: "ioncube,redis,opcache"
+
+    db:
+        image: mariadb:latest
+        restart: unless-stopped
+        ports:
+            - 32771:3306
+        environment:
+            MARIADB_ROOT_PASSWORD: "xnXWM!e06@!u0QLzel5S"
+            MARIADB_DATABASE: app
+        volumes:
+            - app_db:/var/lib/mysql
+
+volumes:
+    app_db:

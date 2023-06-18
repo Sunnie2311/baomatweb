@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+//php
+>>>>>>> 5c478878593497950341253fefe4a78259999247
   class Core {
     protected $currentController = 'Pages';
     protected $currentMethod = 'index';
@@ -8,7 +12,11 @@
 
       $url = $this->getUrl();
       // Look in controllers for first value
+<<<<<<< HEAD
       if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
+=======
+      if(isset($url[0]) && file_exists('/app/controllers/' . ucwords($url[0]). '.php')){
+>>>>>>> 5c478878593497950341253fefe4a78259999247
         // If exists, set as controller
         $this->currentController = ucwords($url[0]);
         // Unset 0 Index
@@ -16,7 +24,11 @@
       }
 
       // Require the controller
+<<<<<<< HEAD
       require_once '../app/controllers/'. $this->currentController . '.php';
+=======
+      require_once '/app/controllers/'. $this->currentController . '.php';
+>>>>>>> 5c478878593497950341253fefe4a78259999247
 
       // Instantiate controller class
       $this->currentController = new $this->currentController;
@@ -48,4 +60,8 @@
     }
   } 
   
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> 5c478878593497950341253fefe4a78259999247
